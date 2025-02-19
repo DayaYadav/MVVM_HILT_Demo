@@ -7,7 +7,4 @@ import com.example.composepoc.domain.model.UserDataResponse
 interface Repository {
 
     suspend fun getProductList() : List<ProductItem>
-
-    suspend fun getProductDetail(id : String) : ProductDetail
-
 }

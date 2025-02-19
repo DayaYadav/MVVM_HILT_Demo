@@ -44,7 +44,7 @@ fun listingScreen (){
             LazyColumn {
                 items(it){ item->
                     listItem(item){product->
-                        Toast.makeText(context,product.title+"==Daya==",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context,product.title,Toast.LENGTH_SHORT).show()
                     }
                 }
             }
