@@ -10,6 +10,4 @@ interface Repository {
 
     suspend fun getProductDetail(id : String) : ProductDetail
 
-    suspend fun getUserDetails() : UserDataResponse
-
 }

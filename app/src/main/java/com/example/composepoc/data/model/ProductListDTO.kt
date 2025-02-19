@@ -1,5 +1,8 @@
 package com.example.composepoc.data.model
 
+/**
+ * Model class to declare product list attributes
+ */
 data class ProductListDTO(
     val category: String,
     val description: String,

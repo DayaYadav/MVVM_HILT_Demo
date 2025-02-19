@@ -10,7 +10,9 @@ import com.example.composepoc.domain.repository.Repository
 import com.example.composepoc.domain.model.UserDataResponse
 import javax.inject.Inject
 
-
+/**
+ * Repository class file to fetch product list
+ */
 class RepositoryImpl @Inject constructor(private val apiService: ApiService) : Repository {
 
     override suspend fun getProductList(): List<ProductItem> {
@@ -21,9 +23,6 @@ class RepositoryImpl @Inject constructor(private val apiService: ApiService) : R
         return apiService.getProductDetailsAPI(id).toProductDetail()
     }
 
-    override suspend fun getUserDetails(): UserDataResponse {
-        return apiService.getUserData().userDetailsData()
-    }
 
 
 }

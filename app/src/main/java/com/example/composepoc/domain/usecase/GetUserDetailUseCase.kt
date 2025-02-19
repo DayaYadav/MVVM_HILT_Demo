@@ -12,15 +12,7 @@ import kotlinx.coroutines.flow.flowOn
 import java.lang.Exception
 import javax.inject.Inject
 
-class GetUserDetailUseCase @Inject constructor(private val repositoryImpl : RepositoryImpl)  {
+class GetUserDetailUseCase ()  {
 
-    operator fun invoke() : Flow<UiState<UserDataResponse>> = flow {
-        emit(UiState.Loading())
-        try {
-            emit(UiState.Success(data = repositoryImpl.getUserDetails()))
-        }catch (e : Exception){
-            emit(UiState.Error(message = e.message.toString()))
-        }
-    }.flowOn(Dispatchers.IO)
 
 }

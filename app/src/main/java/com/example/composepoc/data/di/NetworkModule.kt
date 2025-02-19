@@ -22,12 +22,9 @@ class NetworkModule1 {
     @Provides
     @Singleton
     fun providerRetrofit() : Retrofit{
-        if(CommonUtilClass.flag==1)
-        {0
-            BASE_URL = "https://api.github.com/users/"
-        }
+
         return Retrofit.Builder()
-            .baseUrl(BASE_URL) //
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

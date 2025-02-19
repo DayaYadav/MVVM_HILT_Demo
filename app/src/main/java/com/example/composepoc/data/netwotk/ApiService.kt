@@ -6,6 +6,10 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 
+/**
+ * API interface class to declare API endpoint
+ * Declare suspend function to fetch data from server
+ */
 interface ApiService {
 
     @GET("/products")
@@ -15,7 +19,5 @@ interface ApiService {
     suspend fun getProductDetailsAPI(@Path("Id") id : String) : ProductListDTO
 
 
-    @GET("octocat")
-    suspend fun getUserData() :UserDataResponse
 
 }
