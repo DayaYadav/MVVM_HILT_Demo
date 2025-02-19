@@ -19,6 +19,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.composepoc.presentation.screens.component.listItem
 import com.example.composepoc.presentation.viewmodel.ProductListVewModel
 
+/**
+ * Composable screen to display list of products
+ */
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun listingScreen (){
@@ -41,7 +44,7 @@ fun listingScreen (){
             LazyColumn {
                 items(it){ item->
                     listItem(item){product->
-                        Toast.makeText(context,product.title,Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context,product.title+"==Daya==",Toast.LENGTH_SHORT).show()
                     }
                 }
             }
