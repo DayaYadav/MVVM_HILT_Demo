@@ -1,6 +1,7 @@
 package com.example.data.di
 
 
+import com.example.common.common.Constant.BASE_URL
 import com.example.data.netwotk.ApiService
 
 import com.example.domain.repository.Repository
@@ -13,11 +14,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-
 @InstallIn(SingletonComponent::class)
 @Module
 class NetworkModule1 {
-    var BASE_URL = "https://fakestoreapi.com/"
+
 
     @Provides
     @Singleton
