@@ -31,13 +31,15 @@ class NetworkModule1 {
 
     @Provides
     @Singleton
-    fun providerApiService(retrofit: Retrofit) : ApiService {
+    fun providerApiService(retrofit: Retrofit) : ApiService
+    {
         return retrofit.create(ApiService::class.java)
     }
 
     @Provides
     @Singleton
-    fun providerRepositoryImpl(apiService: ApiService) : Repository {
+    fun providerRepositoryImpl(apiService: ApiService) : Repository
+    {
         return RepositoryImpl(apiService)
     }
 

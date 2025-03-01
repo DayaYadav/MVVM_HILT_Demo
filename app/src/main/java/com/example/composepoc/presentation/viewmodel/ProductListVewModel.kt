@@ -14,8 +14,10 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
+/**
+ * ViewModel class to fetch product list
+ */
 @HiltViewModel
-
 class ProductListVewModel @Inject constructor(private val productListUseCase: GetProductListUseCase) : ViewModel(){
 
     private val _productList = mutableStateOf(ProductListState())
