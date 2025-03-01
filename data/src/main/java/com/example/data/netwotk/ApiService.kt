@@ -1,6 +1,6 @@
-package com.example.domain.netwotk
+package com.example.data.netwotk
 
-import com.example.domain.model.ProductListDTO
+import com.example.data.model.ProductListDTO
 import retrofit2.http.GET
 
 /**

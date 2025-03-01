@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
@@ -42,9 +43,9 @@ fun listingScreen (){
     result.data?.let {
         Column(modifier = Modifier.fillMaxSize()) {
             LazyColumn {
-                items(it){ item->
-                    listItem(item){product->
-                        Toast.makeText(context,product.title,Toast.LENGTH_SHORT).show()
+                items(it) { item ->
+                    listItem(item) { product ->
+                        Toast.makeText(context, product.title, Toast.LENGTH_SHORT).show()
                     }
                 }
             }

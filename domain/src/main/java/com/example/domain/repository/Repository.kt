@@ -4,5 +4,7 @@ import com.example.domain.model.ProductItem
 
 interface Repository {
 
+
+
     suspend fun getProductList() : List<ProductItem>
 }

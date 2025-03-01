@@ -1,8 +1,10 @@
-package com.example.domain.repository
+package com.example.data.repository
 
-import com.example.domain.common.toProductList
+
+import com.example.data.common.toProductList
 import com.example.domain.model.ProductItem
-import com.example.domain.netwotk.ApiService
+import com.example.data.netwotk.ApiService
+import com.example.domain.repository.Repository
 import javax.inject.Inject
 
 /**

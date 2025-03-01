@@ -1,10 +1,10 @@
-package com.example.domain.di
+package com.example.data.di
 
 
-import com.example.domain.netwotk.ApiService
+import com.example.data.netwotk.ApiService
 
 import com.example.domain.repository.Repository
-import com.example.domain.repository.RepositoryImpl
+import com.example.data.repository.RepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

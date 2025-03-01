@@ -2,7 +2,8 @@ package com.example.domain.di
 
 
 
-import com.example.domain.repository.RepositoryImpl
+import com.example.domain.repository.Repository
+
 import com.example.domain.usecase.GetProductListUseCase
 import dagger.Module
 import dagger.Provides
@@ -14,12 +15,16 @@ import javax.inject.Singleton
 @Module
 class UseCaseModule {
 
-    @Provides
+    /*@Provides
     @Singleton
     fun productListUseCaseProvider(repositoryImpl: RepositoryImpl) : GetProductListUseCase {
         return GetProductListUseCase(repositoryImpl)
-    }
+    }*/
 
+    @Provides
+    fun productListUseCaseProvider(getBlogsRepository: Repository):GetProductListUseCase{
+        return GetProductListUseCase(getBlogsRepository)
+    }
 
 
 }

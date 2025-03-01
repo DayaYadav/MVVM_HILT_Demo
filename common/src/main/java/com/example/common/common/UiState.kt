@@ -1,4 +1,4 @@
-package com.example.domain.common
+package com.example.common.common
 
 sealed class UiState<T>(val data:  T?, val message : String?=null){
     class Success<T> (data: T?) : UiState<T>(data)
