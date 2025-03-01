@@ -1,6 +1,7 @@
 package com.example.composepoc.presentation.state
 
-import com.example.composepoc.domain.model.ProductItem
+import com.example.domain.model.ProductItem
+
 
 data class ProductListState(
     val isLoading: Boolean = false,

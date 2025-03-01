@@ -4,15 +4,17 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.composepoc.core.common.UiState
-import com.example.composepoc.domain.usecase.GetProductListUseCase
+
 import com.example.composepoc.presentation.state.ProductListState
+import com.example.domain.common.UiState
+import com.example.domain.usecase.GetProductListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
+
 class ProductListVewModel @Inject constructor(private val productListUseCase: GetProductListUseCase) : ViewModel(){
 
     private val _productList = mutableStateOf(ProductListState())

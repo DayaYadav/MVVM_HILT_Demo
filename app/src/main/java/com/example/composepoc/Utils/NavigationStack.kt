@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.composepoc.screens.listingScreen
+import com.example.composepoc.presentation.screens.listingScreen
 
 import com.example.demo.view.LoginScreen
 
