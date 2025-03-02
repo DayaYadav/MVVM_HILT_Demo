@@ -12,7 +12,23 @@ import org.junit.Test
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class LoginUnitTest {
-     @Test
+  //  @JvmField
+  /*  @Rule
+    var activityScenarioRule: ActivityScenarioRule<MainActivity> =
+        ActivityScenarioRule(MainActivity::class.java)
+    @get:Rule
+    val composeTestRule = createComposeRule()
+    @Before
+    fun setUp() {
+        println("Before test start execution")
+    }
+
+    @After
+    fun tearDown() {
+        println("After test execution")
+    }
+*/
+    @Test
     fun ValidateInputStringTest() {
         var result = CommonUtilClass.ValidateInputString("Hello", 10)
 

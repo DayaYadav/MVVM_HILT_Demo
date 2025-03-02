@@ -1,4 +1,4 @@
-package com.example.demo.view
+package com.example.composepoc.presentation.screens
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
@@ -30,7 +30,6 @@ import androidx.navigation.NavController
 import com.example.composepoc.R
 import com.example.demo.utilClass.CommonUtilClass
 import com.example.demo.utilClass.Screen
-import javax.inject.Inject
 
 
 /**

@@ -25,7 +25,7 @@ import com.example.composepoc.presentation.viewmodel.ProductListVewModel
  */
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
-fun listingScreen (){
+fun ListingScreen (){
 
     val viewModel : ProductListVewModel = hiltViewModel()
     val context  = LocalContext.current
@@ -33,8 +33,8 @@ fun listingScreen (){
 
     if(result.isLoading){
         Column(modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center) {
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center) {
             CircularProgressIndicator(modifier = Modifier.size(50.dp))
         }
 
