@@ -8,6 +8,7 @@ import androidx.test.core.app.takeScreenshot
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Before
 import org.junit.Rule
+import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
@@ -29,6 +30,7 @@ class ListingScreenKtTest {
     fun tearDown() {
     }
 
+@Test
     fun listingScreen() {
         composeTestRule.onNodeWithText("Mens Casual Slim Fit").performScrollTo()
         composeTestRule.onNodeWithText("Mens Casual Slim Fit").performClick()

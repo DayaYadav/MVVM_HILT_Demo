@@ -1,13 +1,8 @@
 package com.example.composepoc
 
 
-import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.example.demo.utilClass.CommonUtilClass
-import org.junit.After
 import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 
 
@@ -17,23 +12,7 @@ import org.junit.Test
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class LoginUnitTest {
-    @JvmField
-    @Rule
-    var activityScenarioRule: ActivityScenarioRule<MainActivity> =
-        ActivityScenarioRule(MainActivity::class.java)
-    @get:Rule
-    val composeTestRule = createComposeRule()
-    @Before
-    fun setUp() {
-        println("Before test start execution")
-    }
-
-    @After
-    fun tearDown() {
-        println("After test execution")
-    }
-
-    @Test
+     @Test
     fun ValidateInputStringTest() {
         var result = CommonUtilClass.ValidateInputString("Hello", 10)
 
