@@ -22,7 +22,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.composepoc.presentation.screens.component.listItem
+import com.example.composepoc.presentation.screens.component.ListItem
 import com.example.composepoc.presentation.viewmodel.ProductListVewModel
 
 /**
@@ -36,22 +36,6 @@ fun ListingScreen (){
     val context  = LocalContext.current
     var result = viewModel.productList.value
 
-   /*     Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentHeight()
-                .padding(vertical = 25.dp)
-            ,
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-
-        ) {
-            Text(
-                "Wardrobe Essentials List",
-                style = MaterialTheme.typography.headlineMedium
-            )
-        }
-
     if(result.isLoading){
         Column(modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -59,7 +43,7 @@ fun ListingScreen (){
             CircularProgressIndicator(modifier = Modifier.size(50.dp))
         }
 
-    }*/
+    }
 
     result.data?.let {
         Column(modifier = Modifier.fillMaxSize()) {
@@ -82,7 +66,7 @@ fun ListingScreen (){
                     }
                 }
                 items(it) { item ->
-                    listItem(item) { product ->
+                    ListItem(item) { product ->
                         Toast.makeText(context, product.title, Toast.LENGTH_SHORT).show()
                     }
                 }

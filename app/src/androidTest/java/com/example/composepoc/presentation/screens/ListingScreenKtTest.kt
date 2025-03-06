@@ -24,10 +24,6 @@ import org.junit.Test
     @SdkSuppress(minSdkVersion = Build.VERSION_CODES.O)
     class ListingScreenKtTest {
 
-  /*  private var viewModel = ProductListVewModel(
-        productListUseCase = TODO()
-    )*/
-    
         @get:Rule
         val composeTestRule = createComposeRule()
 

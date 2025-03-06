@@ -23,7 +23,7 @@ import com.example.domain.model.ProductItem
 
 
 @Composable
-fun listItem(category: ProductItem, onItemClick : (ProductItem) -> Unit) {
+fun ListItem(category: ProductItem, onItemClick : (ProductItem) -> Unit) {
     Card (modifier = Modifier.fillMaxWidth().padding(8.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(5.dp).clickable {
             onItemClick(category)

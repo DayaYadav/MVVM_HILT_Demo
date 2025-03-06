@@ -36,7 +36,7 @@ class LoginScreenKtTest {
         println("Before test case execution")
         // Render the Compose UI
         composeTestRule.activity.setContent {
-            var navController = rememberNavController()
+            val navController = rememberNavController()
             // Call the entry point composable function
             NavHost(navController = navController, startDestination = Screen.LoginScreen.route) {
 

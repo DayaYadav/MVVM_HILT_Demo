@@ -4,6 +4,8 @@ package com.example.common.common
 
 object Constant {
     var BASE_URL = "https://fakestoreapi.com/"
+    val mMaxUserNameLen = 10
+    val mMaxPasswordLen= 20
 
 
 }

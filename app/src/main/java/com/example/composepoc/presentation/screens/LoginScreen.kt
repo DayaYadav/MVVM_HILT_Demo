@@ -27,6 +27,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.common.common.Constant.mMaxPasswordLen
+import com.example.common.common.Constant.mMaxUserNameLen
 import com.example.composepoc.R
 import com.example.demo.utilClass.CommonUtilClass
 import com.example.demo.utilClass.Screen
@@ -42,8 +44,6 @@ fun LoginScreen(navController: NavController) {
     val mContext = LocalContext.current
     val mPassword = remember { mutableStateOf("") }
     val mUsername = remember { mutableStateOf("") }
-    val mMaxUserNameLen = 10
-    val mMaxPasswordLen= 20
 
 
 

@@ -1,17 +1,12 @@
 package com.example.domain.usecase
 
-
-
-import android.util.Log
 import com.example.common.common.UiState
 import com.example.domain.model.ProductItem
 import com.example.domain.repository.Repository
-
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import java.lang.Exception
 import javax.inject.Inject
 
 class GetProductListUseCase @Inject constructor(private val repositoryObj : Repository)  {
