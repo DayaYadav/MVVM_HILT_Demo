@@ -66,9 +66,12 @@ fun ListingScreen (){
                     }
                 }
                 items(it) { item ->
-                    ListItem(item) { product ->
-                        Toast.makeText(context, product.title, Toast.LENGTH_SHORT).show()
-                    }
+                    ListItem(
+                        item,
+                        onItemClick =  { product ->
+                            Toast.makeText(context, product.title, Toast.LENGTH_SHORT).show()
+                        }
+                    )
                 }
             }
         }

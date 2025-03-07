@@ -16,8 +16,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,10 +25,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.common.common.Constant.mMaxPasswordLen
-import com.example.common.common.Constant.mMaxUserNameLen
 import com.example.composepoc.R
+import com.example.composepoc.presentation.viewmodel.ProductListVewModel
 import com.example.demo.utilClass.CommonUtilClass
 import com.example.demo.utilClass.Screen
 
@@ -42,10 +42,9 @@ import com.example.demo.utilClass.Screen
 @Composable
 fun LoginScreen(navController: NavController) {
     val mContext = LocalContext.current
-    val mPassword = remember { mutableStateOf("") }
-    val mUsername = remember { mutableStateOf("") }
-
-
+    val viewModel : ProductListVewModel = hiltViewModel()
+    var mPassword = viewModel.password.observeAsState()
+    var mUsername = viewModel.username.observeAsState()
 
     Surface(modifier = Modifier.fillMaxSize()) {
         Column() {
@@ -80,28 +79,9 @@ fun LoginScreen(navController: NavController) {
                         .padding(horizontal = 10.dp),
                     verticalArrangement = Arrangement.SpaceEvenly
                 ) {
-                    OutlinedTextField(
-                        value = mUsername.value,
-                        maxLines = 12,
 
-                        onValueChange = {
-                            if(!CommonUtilClass.ValidateInputString(it,mMaxUserNameLen))
-                            {
-                                Toast.makeText(mContext,"You can not enter more then $mMaxUserNameLen characters",Toast.LENGTH_SHORT).show()
-                            }else{
-                                mUsername.value = it
-                            }
-                        },
-                        label = {
-                            Text(
-                                text = stringResource(R.string.name_text)
-
-                            )
-                        },
-                        modifier = Modifier.fillMaxWidth()
-                    )
                     OutlinedTextField(
-                        value = mPassword.value,
+                        value = mUsername.value.toString(),
                         onValueChange = {
                             if (!CommonUtilClass.ValidateInputString(it, mMaxPasswordLen)) {
                                 Toast.makeText(
@@ -110,7 +90,29 @@ fun LoginScreen(navController: NavController) {
                                     Toast.LENGTH_SHORT
                                 ).show()
                             } else {
-                                mPassword.value = it
+                                viewModel.updateText(it,true)
+                            }
+                        },
+                        label = {
+                            Text(
+                                text = stringResource(R.string.password_text)
+
+                            )
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    )
+
+                    OutlinedTextField(
+                        value = mPassword.value.toString(),
+                        onValueChange = {
+                            if (!CommonUtilClass.ValidateInputString(it, mMaxPasswordLen)) {
+                                Toast.makeText(
+                                    mContext,
+                                    "You can not enter more then $mMaxPasswordLen characters",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            } else {
+                                viewModel.updateText(it,false)
                             }
                         },
                         label = {
@@ -131,17 +133,13 @@ fun LoginScreen(navController: NavController) {
                     .weight(1f)
                     .padding(horizontal = 10.dp)
             ) {
-
                 Button(
                     onClick = {
-                        if (mUsername.value.isNotEmpty() and mPassword.value.isNotEmpty()) {
+                        if (viewModel.validateInputBox(mUsername.value.toString(),mPassword.value.toString())) {
                             navController.navigate(route = Screen.ListScreen.route)
                         }else{
-                            if (!CommonUtilClass.ValidateInputString(mUsername.value,0) || CommonUtilClass.ValidateInputString(mPassword.value,0)) {
-
-                                Toast.makeText(mContext, "Username and/or Password are Empty"
-                                    , Toast.LENGTH_SHORT).show()
-                            }
+                            Toast.makeText(mContext, "Username and/or Password are Empty"
+                                , Toast.LENGTH_SHORT).show()
                         }
                     },
                     colors = ButtonDefaults.buttonColors(Color(0XFF0F9D58)),
