@@ -28,9 +28,9 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.common.common.Constant.mMaxPasswordLen
+import com.example.common.common.Constant.mMaxUserNameLen
 import com.example.composepoc.R
 import com.example.composepoc.presentation.viewmodel.ProductListVewModel
-import com.example.demo.utilClass.CommonUtilClass
 import com.example.demo.utilClass.Screen
 
 
@@ -42,7 +42,7 @@ import com.example.demo.utilClass.Screen
 @Composable
 fun LoginScreen(navController: NavController) {
     val mContext = LocalContext.current
-    val viewModel : ProductListVewModel = hiltViewModel()
+    val viewModel: ProductListVewModel = hiltViewModel()
     var mPassword = viewModel.password.observeAsState()
     var mUsername = viewModel.username.observeAsState()
 
@@ -57,8 +57,7 @@ fun LoginScreen(navController: NavController) {
             ) {
                 Column(modifier = Modifier.padding(horizontal = 10.dp)) {
                     Text(
-                        text = stringResource(R.string.login_label)
-                        ,
+                        text = stringResource(R.string.login_label),
                         color = Color.White,
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.ExtraBold,
@@ -83,15 +82,10 @@ fun LoginScreen(navController: NavController) {
                     OutlinedTextField(
                         value = mUsername.value.toString(),
                         onValueChange = {
-                            if (!CommonUtilClass.ValidateInputString(it, mMaxPasswordLen)) {
-                                Toast.makeText(
-                                    mContext,
-                                    "You can not enter more then $mMaxPasswordLen characters",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            } else {
-                                viewModel.updateText(it,true)
-                            }
+                            if (it.length <= mMaxUserNameLen)
+                                viewModel.updateText(it, true)
+                            else
+                                Toast.makeText(mContext,"You can not enter more then $mMaxUserNameLen characters",Toast.LENGTH_SHORT).show()
                         },
                         label = {
                             Text(
@@ -105,15 +99,15 @@ fun LoginScreen(navController: NavController) {
                     OutlinedTextField(
                         value = mPassword.value.toString(),
                         onValueChange = {
-                            if (!CommonUtilClass.ValidateInputString(it, mMaxPasswordLen)) {
+                            if (it.length <= mMaxPasswordLen)
+                                viewModel.updateText(it, false)
+                            else
                                 Toast.makeText(
                                     mContext,
                                     "You can not enter more then $mMaxPasswordLen characters",
                                     Toast.LENGTH_SHORT
                                 ).show()
-                            } else {
-                                viewModel.updateText(it,false)
-                            }
+
                         },
                         label = {
                             Text(
@@ -135,11 +129,16 @@ fun LoginScreen(navController: NavController) {
             ) {
                 Button(
                     onClick = {
-                        if (viewModel.validateInputBox(mUsername.value.toString(),mPassword.value.toString())) {
+                        if (viewModel.validateInputBox(
+                                mUsername.value.toString(),
+                                mPassword.value.toString()
+                            )
+                        ) {
                             navController.navigate(route = Screen.ListScreen.route)
-                        }else{
-                            Toast.makeText(mContext, "Username and/or Password are Empty"
-                                , Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(
+                                mContext, "Username and/or Password are Empty", Toast.LENGTH_SHORT
+                            ).show()
                         }
                     },
                     colors = ButtonDefaults.buttonColors(Color(0XFF0F9D58)),

@@ -1,5 +1,7 @@
 package com.example.demo.utilClass
 
+import android.util.Log
+
 /**
  * Common Util class to declare constants
  */
@@ -7,13 +9,12 @@ package com.example.demo.utilClass
 class CommonUtilClass {
     companion object {
 
-        var flag:Int=0
-
-        fun ValidateInputString(str: String, mMaxUserNameLen: Int): Boolean {
-            if ((str != null && str.length != 0) && str.length <= mMaxUserNameLen) {
+        fun validateInputString(str: String, mMaxUserNameLen: Int): Boolean {
+            Log.e("CHK==>",str)
+            if(str.length in 1..mMaxUserNameLen) {
                 return true
-            } else
-                return false
+            }
+            return false
         }
     }
 
