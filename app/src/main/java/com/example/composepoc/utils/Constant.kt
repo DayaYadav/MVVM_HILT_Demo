@@ -1,4 +1,4 @@
-package com.example.composepoc.Utils
+package com.example.composepoc.utils
 
 //File to declare base url
 

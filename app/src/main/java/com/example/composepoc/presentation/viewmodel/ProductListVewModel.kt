@@ -37,6 +37,7 @@ class ProductListVewModel @Inject constructor(productListUseCase: GetProductList
 
 
     init {
+        // invoke function to fetch product list
         productListUseCase.invoke().onEach {
             when (it) {
                 is UiState.Loading -> {
@@ -54,7 +55,9 @@ class ProductListVewModel @Inject constructor(productListUseCase: GetProductList
         }.launchIn(viewModelScope)
     }
 
-
+    /**
+     * Function to update user name /Password input box text
+     */
     fun updateText(newText: String, flag: Boolean) {
 
         if (flag)
@@ -64,6 +67,9 @@ class ProductListVewModel @Inject constructor(productListUseCase: GetProductList
     }
 
 
+    /**
+     * Function to validate username and password input box
+     */
     fun validateInputBox(userName: String, password: String): Boolean {
         if (!userName.isEmpty() && !password.isEmpty())
             return true

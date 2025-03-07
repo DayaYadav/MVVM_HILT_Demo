@@ -8,7 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.composepoc.ui.theme.ComposePOCTheme
-import com.example.demo.utilClass.NavigationStack
+import com.example.composepoc.utils.NavigationStack
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
