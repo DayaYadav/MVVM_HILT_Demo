@@ -1,0 +1,20 @@
+Subject: [PATCH] Test commit
+---
+Index: app/src/main/java/com/example/composepoc/presentation/screens/LoginScreen.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/composepoc/presentation/screens/LoginScreen.kt b/app/src/main/java/com/example/composepoc/presentation/screens/LoginScreen.kt
+--- a/app/src/main/java/com/example/composepoc/presentation/screens/LoginScreen.kt	(revision 94b75d658304bb2a8c139af4f928109a1117b278)
++++ b/app/src/main/java/com/example/composepoc/presentation/screens/LoginScreen.kt	(revision 5fc80e63b0bc3cc5166937d16cbfff5522b48ffc)
+@@ -38,7 +38,8 @@
+  * Login Screen Composable function
+  * Date: 14-01-2025
+  */
+-@OptIn(ExperimentalMaterial3Api::class)
++@OptIn(ExperimentalMaterial3Api::class) //My testing
++
+ @Composable
+ fun LoginScreen(navController: NavController) {
+     val mContext = LocalContext.current
