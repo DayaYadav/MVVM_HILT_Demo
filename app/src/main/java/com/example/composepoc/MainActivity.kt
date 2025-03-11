@@ -11,6 +11,8 @@ import com.example.composepoc.ui.theme.ComposePOCTheme
 import com.example.composepoc.utils.NavigationStack
 import dagger.hilt.android.AndroidEntryPoint
 
+//Test Commit 002
+
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
  override fun onCreate(savedInstanceState: Bundle?) {
